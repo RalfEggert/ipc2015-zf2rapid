@@ -1,0 +1,34 @@
+<?php
+/**
+ * ZF2 Application built by ZF2rapid
+ *
+ * @copyright (c) 2015 John Doe
+ * @license http://opensource.org/licenses/MIT The MIT License (MIT)
+ */
+
+
+use BlogDomain\Model\Entity\CategoryEntity;
+
+/** @var CategoryEntity $categoryEntity */
+$categoryEntity = $this->categoryEntity;
+
+$this->h1('category_admin_title_show');
+?>
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <th><?php echo $this->translate('category_admin_label_id'); ?></th>
+            <td><?php echo $categoryEntity->getId() ?></td>
+        </tr>
+        <tr>
+            <th><?php echo $this->translate('category_admin_label_name'); ?></th>
+            <td><?php echo $categoryEntity->getName() ?></td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    <a class="btn btn-primary" href="<?php echo $this->url('category-admin'); ?>">
+        <i class="fa fa-table"></i>
+        <?php echo $this->translate('category_admin_action_index'); ?>
+    </a>
+</p>

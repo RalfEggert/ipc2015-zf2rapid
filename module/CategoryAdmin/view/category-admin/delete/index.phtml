@@ -1,0 +1,43 @@
+<?php
+/**
+ * ZF2 Application built by ZF2rapid
+ *
+ * @copyright (c) 2015 John Doe
+ * @license http://opensource.org/licenses/MIT The MIT License (MIT)
+ */
+
+
+use BlogDomain\Model\Entity\CategoryEntity;
+
+/** @var CategoryEntity $categoryEntity */
+$categoryEntity = $this->categoryEntity;
+
+$this->h1('category_admin_title_delete');
+
+$this->categoryDeleteForm->setAttribute('action', $this->url('category-admin/delete', ['id' => $categoryEntity->getIdentifier()]));
+
+?>
+<div class="well">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th class="col-sm-2 text-right"><?php echo $this->translate('category_admin_label_id'); ?></th>
+                <td class="col-sm-10"><?php echo $categoryEntity->getId() ?></td>
+            </tr>
+            <tr>
+                <th class="col-sm-2 text-right"><?php echo $this->translate('category_admin_label_name'); ?></th>
+                <td class="col-sm-10"><?php echo $categoryEntity->getName() ?></td>
+            </tr>
+            <tr>
+                <th class="col-sm-2 text-right">&nbsp;</th>
+                <td class="col-sm-10"><?php echo $this->form($this->categoryDeleteForm); ?></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>
+    <a class="btn btn-primary" href="<?php echo $this->url('category-admin'); ?>">
+        <i class="fa fa-table"></i>
+        <?php echo $this->translate('category_admin_action_index'); ?>
+    </a>
+</p>

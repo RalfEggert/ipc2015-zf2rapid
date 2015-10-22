@@ -1,0 +1,21 @@
+<?php
+/**
+ * ZF2 Application built by ZF2rapid
+ *
+ * @copyright (c) 2015 John Doe
+ * @license http://opensource.org/licenses/MIT The MIT License (MIT)
+ */
+
+
+$this->h1('author_admin_title_create');
+
+$this->authorDataForm->setAttribute('action', $this->url('author-admin/create'));
+
+echo $this->bootstrapForm($this->authorDataForm);
+?>
+<p>
+    <a class="btn btn-primary" href="<?php echo $this->url('author-admin'); ?>">
+        <i class="fa fa-table"></i>
+        <?php echo $this->translate('author_admin_action_index'); ?>
+    </a>
+</p>

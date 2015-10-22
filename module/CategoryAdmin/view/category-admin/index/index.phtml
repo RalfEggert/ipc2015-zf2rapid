@@ -1,0 +1,46 @@
+<?php
+/**
+ * ZF2 Application built by ZF2rapid
+ *
+ * @copyright (c) 2015 John Doe
+ * @license http://opensource.org/licenses/MIT The MIT License (MIT)
+ */
+
+
+use BlogDomain\Model\Entity\CategoryEntity;
+
+$this->h1('category_admin_title_index');
+?>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th><?php echo $this->translate('category_admin_label_id'); ?></th>
+        <th><?php echo $this->translate('category_admin_label_name'); ?></th>
+        <th width="95">
+            <a class="btn btn-default btn-xs" href="<?php echo $this->url('category-admin/create'); ?>" title="<?php echo $this->translate('category_admin_action_create'); ?>">
+                <i class="fa fa-plus"></i>
+            </a>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php /** @var CategoryEntity $categoryEntity */ ?>
+    <?php foreach ($this->categoryList as $categoryEntity): ?>
+        <tr>
+            <td><?php echo $categoryEntity->getId() ?></td>
+            <td><?php echo $categoryEntity->getName() ?></td>
+            <td>
+                <a class="btn btn-default btn-xs" href="<?php echo $this->url('category-admin/show', ['id' => $categoryEntity->getIdentifier()]); ?>" title="<?php echo $this->translate('category_admin_action_show'); ?>">
+                    <i class="fa fa-search"></i>
+                </a>
+                <a class="btn btn-default btn-xs" href="<?php echo $this->url('category-admin/update', ['id' => $categoryEntity->getIdentifier()]); ?>" title="<?php echo $this->translate('category_admin_action_update'); ?>">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <a class="btn btn-default btn-xs" href="<?php echo $this->url('category-admin/delete', ['id' => $categoryEntity->getIdentifier()]); ?>" title="<?php echo $this->translate('category_admin_action_delete'); ?>">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

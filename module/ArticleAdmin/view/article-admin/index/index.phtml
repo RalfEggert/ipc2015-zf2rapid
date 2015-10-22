@@ -1,0 +1,60 @@
+<?php
+/**
+ * ZF2 Application built by ZF2rapid
+ *
+ * @copyright (c) 2015 John Doe
+ * @license http://opensource.org/licenses/MIT The MIT License (MIT)
+ */
+
+
+use BlogDomain\Model\Entity\ArticleEntity;
+
+$this->h1('article_admin_title_index');
+?>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th><?php echo $this->translate('article_admin_label_id'); ?></th>
+        <th><?php echo $this->translate('article_admin_label_created'); ?></th>
+        <th><?php echo $this->translate('article_admin_label_changed'); ?></th>
+        <th><?php echo $this->translate('article_admin_label_author'); ?></th>
+        <th><?php echo $this->translate('article_admin_label_status'); ?></th>
+        <th><?php echo $this->translate('article_admin_label_category'); ?></th>
+        <th><?php echo $this->translate('article_admin_label_title'); ?></th>
+        <th><?php echo $this->translate('article_admin_label_teaser'); ?></th>
+        <th><?php echo $this->translate('article_admin_label_text'); ?></th>
+        <th width="95">
+            <a class="btn btn-default btn-xs" href="<?php echo $this->url('article-admin/create'); ?>" title="<?php echo $this->translate('article_admin_action_create'); ?>">
+                <i class="fa fa-plus"></i>
+            </a>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php /** @var ArticleEntity $articleEntity */ ?>
+    <?php foreach ($this->articleList as $articleEntity): ?>
+        <tr>
+            <td><?php echo $articleEntity->getId() ?></td>
+            <td><?php echo $articleEntity->getCreated() ?></td>
+            <td><?php echo $articleEntity->getChanged() ?></td>
+            <td><?php echo $articleEntity->getAuthor() ?></td>
+            <td><?php echo $articleEntity->getStatus() ?></td>
+            <td><?php echo $articleEntity->getCategory() ?></td>
+            <td><?php echo $articleEntity->getTitle() ?></td>
+            <td><?php echo $articleEntity->getTeaser() ?></td>
+            <td><?php echo $articleEntity->getText() ?></td>
+            <td>
+                <a class="btn btn-default btn-xs" href="<?php echo $this->url('article-admin/show', ['id' => $articleEntity->getIdentifier()]); ?>" title="<?php echo $this->translate('article_admin_action_show'); ?>">
+                    <i class="fa fa-search"></i>
+                </a>
+                <a class="btn btn-default btn-xs" href="<?php echo $this->url('article-admin/update', ['id' => $articleEntity->getIdentifier()]); ?>" title="<?php echo $this->translate('article_admin_action_update'); ?>">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <a class="btn btn-default btn-xs" href="<?php echo $this->url('article-admin/delete', ['id' => $articleEntity->getIdentifier()]); ?>" title="<?php echo $this->translate('article_admin_action_delete'); ?>">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

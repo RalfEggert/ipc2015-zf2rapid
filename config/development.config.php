@@ -17,6 +17,9 @@ return [
         'SanSessionToolbar',
         'Shop',
         'BlogDomain',
+        'ArticleAdmin',
+        'AuthorAdmin',
+        'CategoryAdmin',
     ],
     'module_listener_options' => [
         'config_glob_paths' => [

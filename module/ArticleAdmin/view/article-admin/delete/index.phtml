@@ -1,0 +1,71 @@
+<?php
+/**
+ * ZF2 Application built by ZF2rapid
+ *
+ * @copyright (c) 2015 John Doe
+ * @license http://opensource.org/licenses/MIT The MIT License (MIT)
+ */
+
+
+use BlogDomain\Model\Entity\ArticleEntity;
+
+/** @var ArticleEntity $articleEntity */
+$articleEntity = $this->articleEntity;
+
+$this->h1('article_admin_title_delete');
+
+$this->articleDeleteForm->setAttribute('action', $this->url('article-admin/delete', ['id' => $articleEntity->getIdentifier()]));
+
+?>
+<div class="well">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th class="col-sm-2 text-right"><?php echo $this->translate('article_admin_label_id'); ?></th>
+                <td class="col-sm-10"><?php echo $articleEntity->getId() ?></td>
+            </tr>
+            <tr>
+                <th class="col-sm-2 text-right"><?php echo $this->translate('article_admin_label_created'); ?></th>
+                <td class="col-sm-10"><?php echo $articleEntity->getCreated() ?></td>
+            </tr>
+            <tr>
+                <th class="col-sm-2 text-right"><?php echo $this->translate('article_admin_label_changed'); ?></th>
+                <td class="col-sm-10"><?php echo $articleEntity->getChanged() ?></td>
+            </tr>
+            <tr>
+                <th class="col-sm-2 text-right"><?php echo $this->translate('article_admin_label_author'); ?></th>
+                <td class="col-sm-10"><?php echo $articleEntity->getAuthor() ?></td>
+            </tr>
+            <tr>
+                <th class="col-sm-2 text-right"><?php echo $this->translate('article_admin_label_status'); ?></th>
+                <td class="col-sm-10"><?php echo $articleEntity->getStatus() ?></td>
+            </tr>
+            <tr>
+                <th class="col-sm-2 text-right"><?php echo $this->translate('article_admin_label_category'); ?></th>
+                <td class="col-sm-10"><?php echo $articleEntity->getCategory() ?></td>
+            </tr>
+            <tr>
+                <th class="col-sm-2 text-right"><?php echo $this->translate('article_admin_label_title'); ?></th>
+                <td class="col-sm-10"><?php echo $articleEntity->getTitle() ?></td>
+            </tr>
+            <tr>
+                <th class="col-sm-2 text-right"><?php echo $this->translate('article_admin_label_teaser'); ?></th>
+                <td class="col-sm-10"><?php echo $articleEntity->getTeaser() ?></td>
+            </tr>
+            <tr>
+                <th class="col-sm-2 text-right"><?php echo $this->translate('article_admin_label_text'); ?></th>
+                <td class="col-sm-10"><?php echo $articleEntity->getText() ?></td>
+            </tr>
+            <tr>
+                <th class="col-sm-2 text-right">&nbsp;</th>
+                <td class="col-sm-10"><?php echo $this->form($this->articleDeleteForm); ?></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>
+    <a class="btn btn-primary" href="<?php echo $this->url('article-admin'); ?>">
+        <i class="fa fa-table"></i>
+        <?php echo $this->translate('article_admin_action_index'); ?>
+    </a>
+</p>

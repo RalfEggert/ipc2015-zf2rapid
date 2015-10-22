@@ -1,0 +1,47 @@
+<?php
+/**
+ * ZF2 Application built by ZF2rapid
+ *
+ * @copyright (c) 2015 John Doe
+ * @license http://opensource.org/licenses/MIT The MIT License (MIT)
+ */
+
+
+use BlogDomain\Model\Entity\AuthorEntity;
+
+/** @var AuthorEntity $authorEntity */
+$authorEntity = $this->authorEntity;
+
+$this->h1('author_admin_title_delete');
+
+$this->authorDeleteForm->setAttribute('action', $this->url('author-admin/delete', ['id' => $authorEntity->getIdentifier()]));
+
+?>
+<div class="well">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th class="col-sm-2 text-right"><?php echo $this->translate('author_admin_label_id'); ?></th>
+                <td class="col-sm-10"><?php echo $authorEntity->getId() ?></td>
+            </tr>
+            <tr>
+                <th class="col-sm-2 text-right"><?php echo $this->translate('author_admin_label_first_name'); ?></th>
+                <td class="col-sm-10"><?php echo $authorEntity->getFirstName() ?></td>
+            </tr>
+            <tr>
+                <th class="col-sm-2 text-right"><?php echo $this->translate('author_admin_label_last_name'); ?></th>
+                <td class="col-sm-10"><?php echo $authorEntity->getLastName() ?></td>
+            </tr>
+            <tr>
+                <th class="col-sm-2 text-right">&nbsp;</th>
+                <td class="col-sm-10"><?php echo $this->form($this->authorDeleteForm); ?></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<p>
+    <a class="btn btn-primary" href="<?php echo $this->url('author-admin'); ?>">
+        <i class="fa fa-table"></i>
+        <?php echo $this->translate('author_admin_action_index'); ?>
+    </a>
+</p>

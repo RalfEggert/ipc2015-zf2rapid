@@ -1,0 +1,48 @@
+<?php
+/**
+ * ZF2 Application built by ZF2rapid
+ *
+ * @copyright (c) 2015 John Doe
+ * @license http://opensource.org/licenses/MIT The MIT License (MIT)
+ */
+
+
+use BlogDomain\Model\Entity\AuthorEntity;
+
+$this->h1('author_admin_title_index');
+?>
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th><?php echo $this->translate('author_admin_label_id'); ?></th>
+        <th><?php echo $this->translate('author_admin_label_first_name'); ?></th>
+        <th><?php echo $this->translate('author_admin_label_last_name'); ?></th>
+        <th width="95">
+            <a class="btn btn-default btn-xs" href="<?php echo $this->url('author-admin/create'); ?>" title="<?php echo $this->translate('author_admin_action_create'); ?>">
+                <i class="fa fa-plus"></i>
+            </a>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php /** @var AuthorEntity $authorEntity */ ?>
+    <?php foreach ($this->authorList as $authorEntity): ?>
+        <tr>
+            <td><?php echo $authorEntity->getId() ?></td>
+            <td><?php echo $authorEntity->getFirstName() ?></td>
+            <td><?php echo $authorEntity->getLastName() ?></td>
+            <td>
+                <a class="btn btn-default btn-xs" href="<?php echo $this->url('author-admin/show', ['id' => $authorEntity->getIdentifier()]); ?>" title="<?php echo $this->translate('author_admin_action_show'); ?>">
+                    <i class="fa fa-search"></i>
+                </a>
+                <a class="btn btn-default btn-xs" href="<?php echo $this->url('author-admin/update', ['id' => $authorEntity->getIdentifier()]); ?>" title="<?php echo $this->translate('author_admin_action_update'); ?>">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <a class="btn btn-default btn-xs" href="<?php echo $this->url('author-admin/delete', ['id' => $authorEntity->getIdentifier()]); ?>" title="<?php echo $this->translate('author_admin_action_delete'); ?>">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

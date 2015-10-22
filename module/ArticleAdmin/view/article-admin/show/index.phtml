@@ -1,0 +1,62 @@
+<?php
+/**
+ * ZF2 Application built by ZF2rapid
+ *
+ * @copyright (c) 2015 John Doe
+ * @license http://opensource.org/licenses/MIT The MIT License (MIT)
+ */
+
+
+use BlogDomain\Model\Entity\ArticleEntity;
+
+/** @var ArticleEntity $articleEntity */
+$articleEntity = $this->articleEntity;
+
+$this->h1('article_admin_title_show');
+?>
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <th><?php echo $this->translate('article_admin_label_id'); ?></th>
+            <td><?php echo $articleEntity->getId() ?></td>
+        </tr>
+        <tr>
+            <th><?php echo $this->translate('article_admin_label_created'); ?></th>
+            <td><?php echo $articleEntity->getCreated() ?></td>
+        </tr>
+        <tr>
+            <th><?php echo $this->translate('article_admin_label_changed'); ?></th>
+            <td><?php echo $articleEntity->getChanged() ?></td>
+        </tr>
+        <tr>
+            <th><?php echo $this->translate('article_admin_label_author'); ?></th>
+            <td><?php echo $articleEntity->getAuthor() ?></td>
+        </tr>
+        <tr>
+            <th><?php echo $this->translate('article_admin_label_status'); ?></th>
+            <td><?php echo $articleEntity->getStatus() ?></td>
+        </tr>
+        <tr>
+            <th><?php echo $this->translate('article_admin_label_category'); ?></th>
+            <td><?php echo $articleEntity->getCategory() ?></td>
+        </tr>
+        <tr>
+            <th><?php echo $this->translate('article_admin_label_title'); ?></th>
+            <td><?php echo $articleEntity->getTitle() ?></td>
+        </tr>
+        <tr>
+            <th><?php echo $this->translate('article_admin_label_teaser'); ?></th>
+            <td><?php echo $articleEntity->getTeaser() ?></td>
+        </tr>
+        <tr>
+            <th><?php echo $this->translate('article_admin_label_text'); ?></th>
+            <td><?php echo $articleEntity->getText() ?></td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    <a class="btn btn-primary" href="<?php echo $this->url('article-admin'); ?>">
+        <i class="fa fa-table"></i>
+        <?php echo $this->translate('article_admin_action_index'); ?>
+    </a>
+</p>

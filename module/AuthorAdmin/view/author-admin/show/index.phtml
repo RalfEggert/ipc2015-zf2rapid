@@ -1,0 +1,38 @@
+<?php
+/**
+ * ZF2 Application built by ZF2rapid
+ *
+ * @copyright (c) 2015 John Doe
+ * @license http://opensource.org/licenses/MIT The MIT License (MIT)
+ */
+
+
+use BlogDomain\Model\Entity\AuthorEntity;
+
+/** @var AuthorEntity $authorEntity */
+$authorEntity = $this->authorEntity;
+
+$this->h1('author_admin_title_show');
+?>
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <th><?php echo $this->translate('author_admin_label_id'); ?></th>
+            <td><?php echo $authorEntity->getId() ?></td>
+        </tr>
+        <tr>
+            <th><?php echo $this->translate('author_admin_label_first_name'); ?></th>
+            <td><?php echo $authorEntity->getFirstName() ?></td>
+        </tr>
+        <tr>
+            <th><?php echo $this->translate('author_admin_label_last_name'); ?></th>
+            <td><?php echo $authorEntity->getLastName() ?></td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    <a class="btn btn-primary" href="<?php echo $this->url('author-admin'); ?>">
+        <i class="fa fa-table"></i>
+        <?php echo $this->translate('author_admin_action_index'); ?>
+    </a>
+</p>

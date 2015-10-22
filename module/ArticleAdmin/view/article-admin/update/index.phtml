@@ -1,0 +1,26 @@
+<?php
+/**
+ * ZF2 Application built by ZF2rapid
+ *
+ * @copyright (c) 2015 John Doe
+ * @license http://opensource.org/licenses/MIT The MIT License (MIT)
+ */
+
+
+use BlogDomain\Model\Entity\ArticleEntity;
+
+/** @var ArticleEntity $articleEntity */
+$articleEntity = $this->articleEntity;
+
+$this->h1('article_admin_title_update');
+
+$this->articleDataForm->setAttribute('action', $this->url('article-admin/update', ['id' => $articleEntity->getIdentifier()]));
+
+echo $this->bootstrapForm($this->articleDataForm);
+?>
+<p>
+    <a class="btn btn-primary" href="<?php echo $this->url('article-admin'); ?>">
+        <i class="fa fa-table"></i>
+        <?php echo $this->translate('article_admin_action_index'); ?>
+    </a>
+</p>
