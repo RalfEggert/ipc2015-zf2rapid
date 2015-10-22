@@ -16,6 +16,7 @@ return [
         'BjyProfiler',
         'SanSessionToolbar',
         'Shop',
+        'BlogDomain',
     ],
     'module_listener_options' => [
         'config_glob_paths' => [

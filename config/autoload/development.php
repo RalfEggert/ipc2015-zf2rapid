@@ -20,9 +20,9 @@
 return [
     'db' => [
         'driver'  => 'pdo',
-        'dsn'     => 'mysql:dbname=DATEBASE;host=localhost;charset=utf8',
-        'user'    => 'USER',
-        'pass'    => 'PASS',
+        'dsn'     => 'mysql:dbname=ipc2015.zf2rapid;host=localhost;charset=utf8',
+        'user'    => 'ipc2015',
+        'pass'    => 'ipc2015',
     ],
     'service_manager' => [
         'factories' => [
