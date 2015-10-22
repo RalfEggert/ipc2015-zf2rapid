@@ -1,0 +1,30 @@
+<?php
+/**
+ * ZF2rapid skeleton application
+ *
+ * @package    Application
+ * @link      https://github.com/ZFrapid/zf2rapid-skeleton
+ * @copyright Copyright (c) 2014 - 2015 Ralf Eggert
+ * @license   http://opensource.org/licenses/MIT The MIT License (MIT)
+ */
+
+/**
+ * Index view script
+ *
+ * @package    Application
+ */
+
+$this->headTitle('application_title_error_index');
+$this->h1('application_h1_error_index');
+?>
+<div class="jumbotron">
+    <h2><?php echo $this->translate('application_h2_error_index'); ?></h2>
+    <p>
+        <?php echo $this->translate('application_message_try_again_later') ?>:
+    </p>
+    <p class="pull-center">
+        <a href="/" class="btn btn-success">
+            <?php echo $this->translate('application_action_homepage'); ?>
+        </a>
+    </p>
+</div>

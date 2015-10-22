@@ -1,0 +1,103 @@
+/**
+ * ZF2rapid skeleton application
+ * 
+ * @package    Application
+ * @link      https://github.com/ZFrapid/zf2rapid-skeleton
+ * @copyright Copyright (c) 2014 - 2015 Ralf Eggert
+ * @license   http://opensource.org/licenses/MIT The MIT License (MIT)
+ */
+
+/**
+ * basic
+ */
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 14px;
+    border-top: 10px solid #005321;
+}
+
+a {
+    color: #005321;
+}
+
+a:hover {
+    color: #67c32f;
+}
+
+/**
+ * header
+ */
+header {
+    padding-bottom: 20px;
+}
+header .logo {}
+
+header .logo a {
+    text-decoration: none;
+}
+
+header .slogan {
+    text-align: right;
+    font-family : Verdana, Helvetica, Arial, Sans-Serif, serif;
+    font-size: 3em;
+    color: #005321;
+    vertical-align: bottom;
+}
+
+@media (max-width: 991px) {
+    header .slogan {
+        text-align : left;
+        font-size: 2em;
+    }
+
+}
+
+/**
+ * footer
+ */
+footer {
+    background-color: #005321;
+    color: #ffffff;
+    font-size: 12px;
+    margin-top: 17px;
+    padding-bottom: 40px;
+}
+
+footer .footer-top {
+    background-color: #00a341;
+    height: 10px;
+    margin-bottom: 17px;
+}
+
+footer .container {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+footer h4 {
+    color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 10px;
+    margin-bottom: 2px;
+}
+
+footer ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+footer ul li {
+    border-bottom: 1px solid #898989;
+    line-height: 28px;
+}
+
+footer a {
+    color: #67c32f;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
