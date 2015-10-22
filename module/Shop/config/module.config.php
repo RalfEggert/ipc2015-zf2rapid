@@ -39,4 +39,33 @@ return [
             'shopShowBasket' => 'Shop\\View\\Helper\\ShowBasketFactory',
         ],
     ],
+    'router' => [
+        'routes' => [
+            'shop' => [
+                'type' => 'Literal',
+                'options' => [
+                    'route' => '/shop',
+                    'defaults' => [
+                        '__NAMESPACE__' => 'Shop',
+                        'controller' => 'Basket',
+                        'action' => 'index',
+                    ],
+                ],
+                'may_terminate' => true,
+                'child_routes' => [
+                    'controller-action' => [
+                        'type' => 'segment',
+                        'options' => [
+                            'route' => '/:controller[/:action[/:id]]',
+                            'constraints' => [
+                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id' => '[0-9_-]*',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ],
 ];
