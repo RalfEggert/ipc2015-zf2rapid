@@ -66,32 +66,6 @@ class ArticleDataForm extends Form
 
         $this->add(
             [
-                'name' => 'created',
-                'type' => 'text',
-                'options' => [
-                    'label' => 'article_admin_label_created',
-                ],
-                'attributes' => [
-                    'class' => 'form-control',
-                ],
-            ]
-        );
-
-        $this->add(
-            [
-                'name' => 'changed',
-                'type' => 'text',
-                'options' => [
-                    'label' => 'article_admin_label_changed',
-                ],
-                'attributes' => [
-                    'class' => 'form-control',
-                ],
-            ]
-        );
-
-        $this->add(
-            [
                 'name' => 'author',
                 'type' => 'select',
                 'options' => [

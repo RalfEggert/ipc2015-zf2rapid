@@ -305,5 +305,21 @@ class ArticleEntity extends AbstractEntity
         return $this->__toString();
     }
 
+    /**
+     * Create an article
+     */
+    public function createArticle()
+    {
+        $this->setCreated(date('Y-m-d H:i:s'));
+        $this->setChanged(date('Y-m-d H:i:s'));
+    }
+
+    /**
+     * Update an article
+     */
+    public function updateArticle()
+    {
+        $this->setChanged(date('Y-m-d H:i:s'));
+    }
 
 }

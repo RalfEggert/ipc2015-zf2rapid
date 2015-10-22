@@ -13,6 +13,7 @@
  */
 namespace Application\Controller;
 
+use BlogDomain\Model\Repository\ArticleRepository;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -26,10 +27,31 @@ use Zend\View\Model\ViewModel;
 class IndexController extends AbstractActionController
 {
     /**
+     * @var ArticleRepository
+     */
+    private $articleRepository;
+
+    /**
+     * @param ArticleRepository $articleRepository
+     */
+    public function setArticleRepository(ArticleRepository $articleRepository)
+    {
+        $this->articleRepository = $articleRepository;
+    }
+
+    /**
      * Handle homepage
      */
     public function indexAction()
     {
-        return new ViewModel();
+        $articleList = $this->articleRepository->getAllEntities();
+
+        $viewModel = new ViewModel(
+            [
+                'articleList' => $articleList,
+            ]
+        );
+
+        return $viewModel;
     }
 }

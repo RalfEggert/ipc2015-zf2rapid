@@ -7,6 +7,7 @@
  * @copyright  Copyright (c) 2014 - 2015 Ralf Eggert
  * @license    http://opensource.org/licenses/MIT The MIT License (MIT)
  */
+use BlogDomain\Model\Entity\ArticleEntity;
 
 /**
  * Index view script
@@ -17,104 +18,12 @@
 $this->h1('application_h1_index_index');
 
 ?>
-<div class="row">
-    <div class="col-md-3 col-xs-12">
-        <h2>
-            <i class="fa fa-wrench"></i>
-            <?php echo $this->translate('application_h2_index_features'); ?>
-        </h2>
-        <p>
-            <?php echo $this->translate(
-                'application_message_index_features'
-            ); ?>
-        </p>
-        <ul class="fa-ul">
-            <li>
-                <i class="fa-li fa fa-thumbs-up"></i>
-                <?php echo $this->translate(
-                    'application_label_features_i18n'
-                ) ?>
-            </li>
-            <li>
-                <i class="fa-li fa fa-thumbs-up"></i>
-                <?php echo $this->translate(
-                    'application_label_features_layout'
-                ) ?>
-            </li>
-            <li>
-                <i class="fa-li fa fa-thumbs-up"></i>
-                <?php echo $this->translate(
-                    'application_label_features_session'
-                ) ?>
-            </li>
-            <li>
-                <i class="fa-li fa fa-thumbs-up"></i>
-                <?php echo $this->translate(
-                    'application_label_features_navigation'
-                ) ?>
-            </li>
-        </ul>
-    </div>
-    <div class="col-md-3 col-xs-12">
-        <h2>
-            <i class="fa fa-cubes"></i>
-            <?php echo $this->translate('application_h2_index_modules'); ?>
-        </h2>
-        <p>
-            <?php echo $this->translate('application_message_index_modules'); ?>
-        </p>
-        <ul class="fa-ul">
-            <li>
-                <i class="fa-li fa fa-thumbs-up"></i>
-                <?php echo $this->translate('application_label_modules_zdt') ?>
-            </li>
-            <li>
-                <i class="fa-li fa fa-thumbs-up"></i>
-                <?php echo $this->translate('application_label_modules_bp') ?>
-            </li>
-            <li>
-                <i class="fa-li fa fa-thumbs-up"></i>
-                <?php echo $this->translate('application_label_modules_sst') ?>
-            </li>
-            <li>
-                <i class="fa-li fa fa-thumbs-up"></i>
-                <?php echo $this->translate('application_label_modules_am') ?>
-            </li>
-        </ul>
-    </div>
-    <div class="col-md-3 col-xs-12">
-        <h2>
-            <i class="fa fa-desktop"></i>
-            <?php echo $this->translate('application_h2_index_frontend'); ?>
-        </h2>
-        <p>
-            <?php echo $this->translate(
-                'application_message_index_frontend'
-            ); ?>
-        </p>
-        <p></p>
-        <ul class="fa-ul">
-            <li>
-                <i class="fa-li fa fa-thumbs-up"></i>
-                <?php echo $this->translate(
-                    'application_label_frontend_bootstrap'
-                ) ?>
-            </li>
-            <li>
-                <i class="fa-li fa fa-thumbs-up"></i>
-                <?php echo $this->translate(
-                    'application_label_frontend_fontawesome'
-                ) ?>
-            </li>
-            <li>
-                <i class="fa-li fa fa-thumbs-up"></i>
-                <?php echo $this->translate(
-                    'application_label_frontend_jquery'
-                ) ?>
-            </li>
-        </ul>
-    </div>
-    <div class="col-md-3 col-xs-12">
-        <img src="/assets/custom/img/maskot.png" class="img-responsive">
-    </div>
-</div>
+<?php /** @var ArticleEntity $articleEntity */ ?>
+<?php foreach ($this->articleList as $articleEntity): ?>
+    <h2><?php echo $articleEntity->getTitle() ?></h2>
+    <p><em>From <?php echo $articleEntity->getAuthor() ?></em></p>
+    <p><?php echo $articleEntity->getTeaser() ?></p>
+    <p><em>Written on <?php echo $this->date($articleEntity->getCreated()) ?></em></p>
+    <hr>
+<?php endforeach; ?>
+

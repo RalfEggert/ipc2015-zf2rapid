@@ -9,6 +9,7 @@
 
 namespace BlogDomain\Model\TableGateway;
 
+use ZF2rapidDomain\Entity\EntityInterface;
 use ZF2rapidDomain\TableGateway\AbstractTableGateway;
 use BlogDomain\Model\Entity\ArticleEntity;
 use Zend\Db\ResultSet\ResultSetInterface;
@@ -80,6 +81,30 @@ class ArticleTableGateway extends AbstractTableGateway
         );
 
         return parent::selectWith($select);
+    }
+
+    /**
+     * @param ArticleEntity|EntityInterface $entity
+     *
+     * @return bool
+     */
+    public function insertEntity(EntityInterface $entity)
+    {
+        $entity->createArticle();
+
+        return parent::insertEntity($entity);
+    }
+
+    /**
+     * @param ArticleEntity|EntityInterface $entity
+     *
+     * @return bool
+     */
+    public function updateEntity(EntityInterface $entity)
+    {
+        $entity->updateArticle();
+
+        return parent::updateEntity($entity);
     }
 
 
